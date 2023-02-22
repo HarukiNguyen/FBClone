@@ -3,6 +3,90 @@
 @tailwind utilities;
 
 @layer base {
+  /* Arial */
+  @font-face {
+    font-family: Arial;
+    src: url('../fonts/Arial/Arial.ttf') format('truetype');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: Arial;
+    src: url('../fonts/Arial/ArialMedium.ttf') format('truetype');
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: Arial;
+    src: url('../fonts/Arial/ArialBold.ttf') format('truetype');
+    font-weight: 700;
+  }
+  /* End Arial */
+
+  /* Helvetica */
+  @font-face {
+    font-family: Helvetica;
+    src: url('../fonts/Helvetica/HelveticaCE.ttf') format('truetype');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: Helvetica;
+    src: url('../fonts/Helvetica/HelveticaCEMedium.ttf') format('truetype');
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: Helvetica;
+    src: url('../fonts/Helvetica/HelveticaCEBold.ttf') format('truetype');
+    font-weight: 700;
+  }
+  /* End Helvetica */
+
+  /* SegoeUI */
+  @font-face {
+    font-family: SegoeUI;
+    src: url('../fonts/SegoeUI/SegoeUI.ttf') format('truetype');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: SegoeUI;
+    src: url('../fonts/SegoeUI/SegoeUISemibold.ttf') format('truetype');
+    font-weight: 600;
+  }
+
+  @font-face {
+    font-family: SegoeUI;
+    src: url('../fonts/SegoeUI/SegoeUIBold.ttf') format('truetype');
+    font-weight: 700;
+  }
+  /* End SegoeUI */
+
+  /* SegoeUIHistoric */
+  @font-face {
+    font-family: SegoeUIHistoric;
+    src: url('../fonts/SegoeUIHistoric/SegoeUIHistoric.ttf') format('truetype');
+    font-weight: 400;
+  }
+  /* End SegoeUIHistoric */
+
+  /* SFProDisplay */
+  @font-face {
+    font-family: SFProDisplay;
+    src: url('../fonts/SFProDisplay/SFProDisplay.ttf') format('truetype');
+    font-weight: 400;
+  }
+  /* End SFProDisplay */
+
+  /* Times New Roman */
+  @font-face {
+    font-family: 'Times New Roman';
+    src: url('../fonts/TimesNewRoman/TimesNewRoman.ttf') format('truetype');
+    font-weight: 400;
+  }
+  /* End Times New Roman */
+
   body {
     background-color: #f0f2f5;
   }
