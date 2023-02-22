@@ -88,6 +88,8 @@
   /* End Times New Roman */
 
   body {
-    background-color: #f0f2f5;
+    @apply bg-white leading-[1.34] text-[#1c1e21];
+    direction: ltr;
+    unicode-bidi: embed;
   }
 }
