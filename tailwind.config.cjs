@@ -55,7 +55,11 @@ module.exports = {
     scrollPadding: ({ theme }) => ({
       ...theme('margin'),
     }),
-    screens: {},
+    screens: {
+      tablet: '700px',
+      laptop: '1100px',
+      desktop: '1920px',
+    },
     container: {
       center: true,
     },
