@@ -64,7 +64,18 @@ module.exports = {
       center: true,
     },
     extend: {
-      fontFamily: {},
+      fontFamily: {
+        SUIH: [
+          'SegoeUIHistoric',
+          'SegoeUI',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
+        Helvetica: ['Helvetica', 'Arial', 'sans-serif'],
+        SFProDisplay: ['SFProDisplay', 'Helvetica', 'Arial', 'sans-serif'],
+        SFProText: ['SFProText', 'Helvetica', 'Arial', 'sans-serif'],
+      },
       animation: {},
       keyframes: {},
       boxShadow: {},
