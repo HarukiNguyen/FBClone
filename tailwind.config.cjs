@@ -78,7 +78,9 @@ module.exports = {
       },
       animation: {},
       keyframes: {},
-      boxShadow: {},
+      boxShadow: {
+        formBox: '0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1)',
+      },
       colors: {
         fb: {
           50: '#e7f3ff',
