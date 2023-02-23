@@ -1,5 +1,7 @@
+import Login from './pages/Login';
+
 function App() {
-  return <h3 className="">Have a nice day!</h3>;
+  return <Login />;
 }
 
 export default App;
