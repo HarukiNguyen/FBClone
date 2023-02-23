@@ -93,3 +93,23 @@
     unicode-bidi: embed;
   }
 }
+
+@layer components {
+  .input {
+    @apply w-full rounded-md border border-fb-border py-[14px] px-4 text-[17px] outline-none focus:border-[#1b74e4] focus:caret-[#1b74e4];
+  }
+
+  .formBox {
+    @apply rounded-lg bg-white py-[10px] px-4 shadow-formBox;
+  }
+
+  .button {
+    @apply rounded-md px-4 font-Helvetica font-bold text-white transition-colors focus:outline-none;
+  }
+}
+
+@layer utilities {
+  .focus {
+    @apply focus:rounded focus:outline-1 focus:outline-fb-primary;
+  }
+}
