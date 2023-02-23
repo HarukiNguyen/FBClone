@@ -80,9 +80,15 @@ module.exports = {
       keyframes: {},
       boxShadow: {
         formBox: '0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1)',
+        primaryBtn:
+          '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)',
+        greenBtn:
+          '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)',
       },
       colors: {
         fb: {
+          primary: '#1877f2',
+          border: '#dddfe2',
           50: '#e7f3ff',
           100: '#BEDDFD',
           200: '#9AC5F9',
