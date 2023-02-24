@@ -67,16 +67,10 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        SUIH: [
-          'SegoeUIHistoric',
-          'SegoeUI',
-          'Helvetica',
-          'Arial',
-          'sans-serif',
-        ],
-        Helvetica: ['Helvetica', 'Arial', 'sans-serif'],
-        SFProDisplay: ['SFProDisplay', 'Helvetica', 'Arial', 'sans-serif'],
-        SFProText: ['SFProText', 'Helvetica', 'Arial', 'sans-serif'],
+        SUIH: ['SegoeUIHistoric', 'SegoeUI', 'Arial', 'sans-serif'],
+        Arial: ['Arial', 'sans-serif'],
+        SFProDisplay: ['SFProDisplay', 'Arial', 'sans-serif'],
+        SFProText: ['SFProText', 'Arial', 'sans-serif'],
       },
       animation: {},
       keyframes: {},

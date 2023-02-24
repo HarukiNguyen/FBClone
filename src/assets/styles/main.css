@@ -23,26 +23,6 @@
   }
   /* End Arial */
 
-  /* Helvetica */
-  @font-face {
-    font-family: Helvetica;
-    src: url('../fonts/Helvetica/Helvetica.ttf') format('truetype');
-    font-weight: 400;
-  }
-
-  @font-face {
-    font-family: Helvetica;
-    src: url('../fonts/Helvetica/HelveticaMedium.ttf') format('truetype');
-    font-weight: 500;
-  }
-
-  @font-face {
-    font-family: Helvetica;
-    src: url('../fonts/Helvetica/HelveticaBold.ttf') format('truetype');
-    font-weight: 700;
-  }
-  /* End Helvetica */
-
   /* SegoeUI */
   @font-face {
     font-family: SegoeUI;
@@ -88,7 +68,7 @@
   /* End Times New Roman */
 
   body {
-    @apply bg-white leading-[1.34] text-[#1c1e21];
+    @apply font-Arial bg-white leading-[1.34] text-[#1c1e21];
     direction: ltr;
     unicode-bidi: embed;
   }
@@ -104,7 +84,7 @@
   }
 
   .button {
-    @apply rounded-md px-4 font-Helvetica font-bold text-white transition-colors focus:outline-none;
+    @apply rounded-md px-4 font-bold text-white transition-colors focus:outline-none;
   }
 }
 
