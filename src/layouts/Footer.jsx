@@ -31,7 +31,7 @@ function Footer() {
     );
   });
   return (
-    <footer className="py-6 px-10 font-Helvetica">
+    <footer className="py-6 px-10 font-Helvetica 900:px-0">
       <ul className="flex">{listItems}</ul>
       <div>
         <span className="font-Helvetica text-[11px] text-[#737373]">
