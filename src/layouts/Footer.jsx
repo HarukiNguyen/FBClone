@@ -31,12 +31,10 @@ function Footer() {
     );
   });
   return (
-    <footer className="py-6 px-10 font-Helvetica 900:px-0">
+    <footer className="py-6 px-10 900:px-0">
       <ul className="flex">{listItems}</ul>
       <div>
-        <span className="font-Helvetica text-[11px] text-[#737373]">
-          Meta © 2023
-        </span>
+        <span className="text-[11px] text-[#737373]">Meta © 2023</span>
       </div>
     </footer>
   );
