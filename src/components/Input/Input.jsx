@@ -34,13 +34,13 @@ function Input({
 
     const newValidateInfo = {};
 
-    if (isRequired) {
-      newValidateInfo.fill = [validateFill(value), msg.fill];
-    }
+    isRequired
+      ? (newValidateInfo.fill = [validateFill(value), msg.fill])
+      : null;
 
-    if (isEmail) {
-      newValidateInfo.email = [validateEmail(value), msg.email];
-    }
+    isEmail
+      ? (newValidateInfo.email = [validateEmail(value), msg.email])
+      : null;
 
     setValidateInfo(newValidateInfo);
   }, [value]);
