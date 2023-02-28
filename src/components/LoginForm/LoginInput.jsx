@@ -12,8 +12,8 @@ function LoginInput({
   let invalidMsgElm;
 
   if (invalidInfo) {
-    const { isInvalid, msg } = invalidInfo;
-    invalidMsgElm = isInvalid ? <InvalidMsg msg={msg} /> : null;
+    const { isInvalid, message } = invalidInfo;
+    invalidMsgElm = isInvalid ? <InvalidMsg msg={message} /> : null;
   }
 
   return (

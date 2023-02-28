@@ -1,4 +1,11 @@
-export default function getInvalidInfo(validateInfo, setInvalidInfo) {
+export default function getInvalidInfo(
+  validateInfo,
+  setIsInvalid,
+  setMessage,
+  setIsValidInfo,
+  type,
+  isValidInfo
+) {
   // Check if the input is valid
   const isInvalid = !Object.values(validateInfo).every((info) => info[0]);
 
@@ -15,5 +22,7 @@ export default function getInvalidInfo(validateInfo, setInvalidInfo) {
     msg = invalidInfoEntry ? invalidInfoEntry[1] : '';
   }
 
-  setInvalidInfo({ isInvalid, msg });
+  setIsValidInfo({ ...isValidInfo, [type]: !isInvalid });
+  setIsInvalid(isInvalid);
+  setMessage(msg);
 }

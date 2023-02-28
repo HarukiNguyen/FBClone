@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import validateEmail from '../../ultilities/validateEmail';
 import validateFill from '../../ultilities/validateFill';
 import getInvalidInfo from '../Input/getValidateInfo';
+import { IsValidInfoContext } from '../LoginForm/LoginForm';
 import LoginInput from '../LoginForm/LoginInput';
 
 function Input({
@@ -12,17 +13,28 @@ function Input({
   isEmail,
   isRequired,
   setValue,
+  setIsValidInfo,
 }) {
   const [validateInfo, setValidateInfo] = useState({});
-  const [invalidInfo, setInvalidInfo] = useState({});
+  const [isInvalid, setIsInvalid] = useState(null);
+  const [message, setMessage] = useState('');
+  const isValidInfo = useContext(IsValidInfoContext);
 
   useEffect(() => {
     if (Object.keys(validateInfo).length !== 0) {
-      getInvalidInfo(validateInfo, setInvalidInfo);
+      getInvalidInfo(
+        validateInfo,
+        setIsInvalid,
+        setMessage,
+        setIsValidInfo,
+        type,
+        isValidInfo
+      );
     }
   }, [validateInfo]);
 
-  const handleInput = useCallback((e) => {
+  const handleChange = useCallback((e) => {
+    setIsInvalid(false);
     setValue(e.target.value);
   }, []);
 
@@ -47,12 +59,12 @@ function Input({
 
   return (
     <LoginInput
-      invalidInfo={invalidInfo}
+      invalidInfo={{ isInvalid, message }}
       autoFocus={autoFocus}
       type={type}
       placeholder={placeholder}
       value={value}
-      onChange={handleInput}
+      onChange={handleChange}
       onBlur={handleBlur}
     />
   );
