@@ -2,36 +2,11 @@ import React, { createContext, useCallback, useReducer } from 'react';
 import Input from '../../components/Input/Input';
 import SignupBtn from '../../components/SignupBtn';
 import VerDivider from '../../components/VerDivider';
+import { SET_EMAIL, SET_IS_VALID_INFO, SET_PASS } from './loginActions';
 import LoginBtn from './LoginBtn';
+import reducer, { initialState } from './loginReducers';
 
 export const IsValidInfoContext = createContext({});
-
-const initialState = {
-  email: '',
-  pass: '',
-  isValidInfo: {},
-};
-
-const SET_EMAIL = 'setEmail';
-const SET_PASS = 'setPass';
-const SET_IS_VALID_INFO = 'setIsValidInfo';
-
-function reducer(state, action) {
-  switch (action.type) {
-    case SET_EMAIL: {
-      return { ...state, email: action.payload };
-    }
-    case SET_PASS: {
-      return { ...state, pass: action.payload };
-    }
-    case SET_IS_VALID_INFO: {
-      return { ...state, isValidInfo: action.payload };
-    }
-
-    default:
-      throw new Error(`Unhandled action type: ${action.type}`);
-  }
-}
 
 function LoginForm() {
   const [{ email, pass, isValidInfo }, dispatch] = useReducer(
