@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useReducer } from 'react';
-import Input from '../Input/Input';
-import SignupBtn from '../SignupBtn';
-import VerDivider from '../VerDivider';
+import Input from '../../components/Input/Input';
+import SignupBtn from '../../components/SignupBtn';
+import VerDivider from '../../components/VerDivider';
 import LoginBtn from './LoginBtn';
 
 export const IsValidInfoContext = createContext({});

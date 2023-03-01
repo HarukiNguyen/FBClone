@@ -2,8 +2,8 @@ import React, { useCallback, useContext, useEffect, useState } from 'react';
 import validateEmail from '../../ultilities/validateEmail';
 import validateFill from '../../ultilities/validateFill';
 import getInvalidInfo from '../Input/getValidateInfo';
-import { IsValidInfoContext } from '../LoginForm/LoginForm';
-import LoginInput from '../LoginForm/LoginInput';
+import { IsValidInfoContext } from '../../features/LoginForm/LoginForm';
+import LoginInput from '../../features/LoginForm/LoginInput';
 
 function Input({
   autoFocus,

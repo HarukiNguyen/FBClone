@@ -1,4 +1,4 @@
-import InvalidMsg from '../InvalidMsg';
+import InvalidMsg from './../../components/InvalidMsg';
 
 function LoginInput({
   type,
