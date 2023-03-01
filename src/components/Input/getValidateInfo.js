@@ -12,6 +12,12 @@ export default function getInvalidInfo(
 
   // Set invalid message
   let msg = '';
+
+  if (!isValidInfo) {
+    console.log(`isValidInfo is invalid: ${JSON.stringify(isValidInfo)}`);
+    return;
+  }
+
   if (validateInfo.fill && !validateInfo.fill[0]) {
     msg = validateInfo.fill[1];
   } else {

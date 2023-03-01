@@ -19,12 +19,16 @@ function LoginForm() {
     // Eg: both have valid inputs --> delete email --> can't run this func when click the login button
     (e) => {
       e.preventDefault();
+
+      if (!isValidInfo) {
+        console.error(
+          `Can't handle login logic: ${JSON.stringify(isValidInfo)}`
+        );
+      }
+
       if (Object.values(isValidInfo).every(Boolean)) {
         // handle login logic
         console.log('valid');
-      } else {
-        // handle invalid login
-        console.log('invalid');
       }
     },
     [isValidInfo]
