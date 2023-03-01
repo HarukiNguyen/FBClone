@@ -33,10 +33,13 @@ function Input({
     }
   }, [validateInfo]);
 
-  const handleChange = useCallback((e) => {
-    setIsInvalid(false);
-    setValue(e.target.value);
-  }, []);
+  const handleChange = useCallback(
+    (e) => {
+      setIsInvalid(false);
+      setValue(e.target.value);
+    },
+    [setIsInvalid, setValue]
+  );
 
   const handleBlur = useCallback(() => {
     const msg = {
@@ -55,7 +58,7 @@ function Input({
       : null;
 
     setValidateInfo(newValidateInfo);
-  }, [value]);
+  }, [value, isEmail, isRequired, validateFill, validateEmail, setIsValidInfo]);
 
   return (
     <LoginInput
