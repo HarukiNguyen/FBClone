@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import validateEmail from '../../ultilities/validateEmail';
 import validateFill from '../../ultilities/validateFill';
 import getInvalidInfo from '../Input/getValidateInfo';
@@ -19,6 +19,8 @@ function Input({
   const [isInvalid, setIsInvalid] = useState(null);
   const [message, setMessage] = useState('');
   const isValidInfo = useContext(IsValidInfoContext);
+  const validateFillMemoized = useCallback(validateFill, []);
+  const validateEmailMemoized = useCallback(validateEmail, []);
 
   useEffect(() => {
     if (Object.keys(validateInfo).length !== 0) {
@@ -49,16 +51,23 @@ function Input({
 
     const newValidateInfo = {};
 
-    isRequired
-      ? (newValidateInfo.fill = [validateFill(value), msg.fill])
-      : null;
+    if (isRequired) {
+      newValidateInfo.fill = [validateFillMemoized(value), msg.fill];
+    }
 
-    isEmail
-      ? (newValidateInfo.email = [validateEmail(value), msg.email])
-      : null;
+    if (isEmail) {
+      newValidateInfo.email = [validateEmailMemoized(value), msg.email];
+    }
 
     setValidateInfo(newValidateInfo);
-  }, [value, isEmail, isRequired, validateFill, validateEmail, setIsValidInfo]);
+  }, [
+    value,
+    isEmail,
+    isRequired,
+    validateFillMemoized,
+    validateEmailMemoized,
+    setIsValidInfo,
+  ]);
 
   return (
     <LoginInput
@@ -73,4 +82,4 @@ function Input({
   );
 }
 
-export default Input;
+export default React.memo(Input);
