@@ -1,18 +1,47 @@
-import React, { createContext, useCallback, useReducer } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useEffect,
+  useReducer,
+} from 'react';
 import Input from '../../components/Input/Input';
 import SignupBtn from '../../components/SignupBtn';
 import VerDivider from '../../components/VerDivider';
-import { SET_EMAIL, SET_IS_VALID_INFO, SET_PASS } from './loginActions';
+import fetchUsersData from './fetchUsersData';
+import {
+  SET_CLICK_EVENT,
+  SET_EMAIL,
+  SET_IS_VALID_INFO,
+  SET_PASS,
+  SET_USERS_DATA,
+} from './loginActions';
 import LoginBtn from './LoginBtn';
 import reducer, { initialState } from './loginReducers';
 
 export const IsValidInfoContext = createContext({});
 
 function LoginForm() {
-  const [{ email, pass, isValidInfo }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ email, pass, isValidInfo, clickEvent, usersData }, dispatch] =
+    useReducer(reducer, initialState);
+  const memoizedFetchUsersData = useCallback(fetchUsersData, []);
+
+  useEffect(() => {
+    const usersDataUrl = 'http://localhost:3000/users';
+
+    if (
+      Object.keys(isValidInfo).length !== 0 &&
+      Object.values(isValidInfo).every(Boolean)
+    ) {
+      if (usersData.length === 0) {
+        memoizedFetchUsersData(usersDataUrl, dispatch, SET_USERS_DATA);
+      } else {
+        const registedUser = usersData.find((user) => {
+          return user.email === email;
+        });
+        console.log(registedUser ? 'registed' : 'not registed');
+      }
+    }
+  }, [clickEvent, dispatch, usersData]);
 
   const handleLogin = useCallback(
     // TODO(fix): sometimes this function doesn't work when changing values of the inputs
@@ -26,17 +55,37 @@ function LoginForm() {
         );
       }
 
-      if (Object.values(isValidInfo).every(Boolean)) {
-        // handle login logic
-        console.log('valid');
-      }
+      // click event for trigger the useCallback
+      dispatch({ type: SET_CLICK_EVENT, payload: !clickEvent });
     },
-    [isValidInfo]
+
+    [isValidInfo, SET_CLICK_EVENT, clickEvent]
   );
 
-  const actionCreator = useCallback(
+  const inputActionCreator = useCallback(
     (type, val) => {
       dispatch({ type, payload: val });
+    },
+    [dispatch]
+  );
+
+  const handleEmailChange = useCallback(
+    (value) => {
+      inputActionCreator(SET_EMAIL, value);
+    },
+    [dispatch]
+  );
+
+  const handlePassChange = useCallback(
+    (value) => {
+      inputActionCreator(SET_PASS, value);
+    },
+    [dispatch]
+  );
+
+  const handleIsValidInfoChange = useCallback(
+    (value) => {
+      inputActionCreator(SET_IS_VALID_INFO, value);
     },
     [dispatch]
   );
@@ -53,22 +102,18 @@ function LoginForm() {
           type="email"
           placeholder="Nhập email của bạn"
           value={email}
-          setValue={(value) => actionCreator(SET_EMAIL, value)}
+          setValue={handleEmailChange}
           isEmail
           isRequired
-          setIsValidInfo={(value) => {
-            actionCreator(SET_IS_VALID_INFO, value);
-          }}
+          setIsValidInfo={handleIsValidInfoChange}
         />
         <Input
           type="password"
           placeholder="Mật khẩu"
           value={pass}
-          setValue={(value) => actionCreator(SET_PASS, value)}
+          setValue={handlePassChange}
           isRequired
-          setIsValidInfo={(value) => {
-            actionCreator(SET_IS_VALID_INFO, value);
-          }}
+          setIsValidInfo={handleIsValidInfoChange}
         />
       </IsValidInfoContext.Provider>
       <LoginBtn onClick={handleLogin} />
