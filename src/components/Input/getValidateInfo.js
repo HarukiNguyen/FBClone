@@ -14,8 +14,7 @@ export default function getInvalidInfo(
   let msg = '';
 
   if (!isValidInfo) {
-    console.log(`isValidInfo is invalid: ${JSON.stringify(isValidInfo)}`);
-    return;
+    throw new Error(`isValidInfo is invalid: ${JSON.stringify(isValidInfo)}`);
   }
 
   if (validateInfo.fill && !validateInfo.fill[0]) {
