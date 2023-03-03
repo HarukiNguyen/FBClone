@@ -1,4 +1,4 @@
-import LoginForm from '../features/LoginForm/LoginForm';
+import LoginForm from '../features/Login/LoginForm';
 import LogoSlogan from '../components/LogoSlogan/LogoSlogan';
 import Footer from '../layouts/Footer';
 
