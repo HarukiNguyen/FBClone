@@ -1,19 +1,22 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { IsValidInfoContext } from '../../features/Login/LoginForm';
+import LoginInput from '../../features/Login/LoginInput';
+import SignupInput from '../../features/Signup/SignupInput';
 import validateEmail from '../../ultilities/validateEmail';
 import validateFill from '../../ultilities/validateFill';
 import getInvalidInfo from '../Input/getValidateInfo';
-import { IsValidInfoContext } from '../../features/Login/LoginForm';
-import LoginInput from '../../features/Login/LoginInput';
 
 function Input({
   autoFocus,
   type,
+  name,
   placeholder,
   value,
   isEmail,
   isRequired,
   setValue,
   setIsValidInfo,
+  inputType,
 }) {
   const [validateInfo, setValidateInfo] = useState({});
   const [isInvalid, setIsInvalid] = useState(null);
@@ -69,15 +72,23 @@ function Input({
     setIsValidInfo,
   ]);
 
-  return (
+  return inputType === 'login' ? (
     <LoginInput
       invalidInfo={{ isInvalid, message }}
       autoFocus={autoFocus}
       type={type}
+      name={name}
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
       onBlur={handleBlur}
+    />
+  ) : (
+    <SignupInput
+      autoFocus={autoFocus}
+      type={type}
+      name={name}
+      placeholder={placeholder}
     />
   );
 }

@@ -2,6 +2,7 @@ import InvalidMsg from './../../components/InvalidMsg';
 
 function LoginInput({
   type,
+  name,
   placeholder,
   onChange,
   onBlur,
@@ -19,10 +20,10 @@ function LoginInput({
   return (
     <div className="py-1.5">
       <input
-        autoFocus={autoFocus ?? 0}
+        autoFocus={autoFocus}
         type={type}
-        name={type}
-        className="input"
+        name={name}
+        className="login-input"
         placeholder={placeholder}
         aria-label={placeholder}
         onChange={onChange}

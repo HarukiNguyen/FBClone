@@ -94,12 +94,14 @@ function LoginForm() {
     <form
       action=""
       method="POST"
-      className="formBox 900:w-[400px] 900:min-w-[400px]"
+      className="form-box 900:w-[400px] 900:min-w-[400px]"
     >
       <IsValidInfoContext.Provider value={isValidInfo}>
         <Input
+          inputType="login"
           autoFocus
           type="email"
+          name="email"
           placeholder="Nhập email của bạn"
           value={email}
           setValue={handleEmailChange}
@@ -108,7 +110,9 @@ function LoginForm() {
           setIsValidInfo={handleIsValidInfoChange}
         />
         <Input
+          inputType="login"
           type="password"
+          name="password"
           placeholder="Mật khẩu"
           value={pass}
           setValue={handlePassChange}
@@ -126,7 +130,9 @@ function LoginForm() {
         </a>
       </div>
       <VerDivider className={'py-6'} />
-      <SignupBtn />
+      <SignupBtn className="button py-[13px] text-[17px]">
+        Tạo tài khoản mới
+      </SignupBtn>
     </form>
   );
 }

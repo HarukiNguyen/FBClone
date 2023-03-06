@@ -1,6 +1,7 @@
 import LoginForm from '../features/Login/LoginForm';
 import LogoSlogan from '../components/LogoSlogan/LogoSlogan';
 import Footer from '../layouts/Footer';
+import Signup from '../features/Signup/Signup';
 
 function Login() {
   return (
@@ -18,6 +19,7 @@ function Login() {
       <div className="mx-auto 900:max-w-[820px] 1075:max-w-[980px]">
         <Footer />
       </div>
+      <Signup />
     </div>
   );
 }
