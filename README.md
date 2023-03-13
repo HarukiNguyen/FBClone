@@ -39,5 +39,5 @@ npm run json-server
 
 ## Todos
 
-- [ ] Perf: `getValidateInfo.jx` > optimize.
+- [ ] Perf: `getValidateInfo.js` > optimize.
 - [ ] Fix: `LoginForm.jsx` > `handleLogin`.
