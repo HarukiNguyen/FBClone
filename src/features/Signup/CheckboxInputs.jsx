@@ -3,7 +3,7 @@ function CheckboxInputs({ data }) {
 
   const checkboxes = Object.entries(values).map(([key, val]) => {
     return (
-      <div>
+      <div key={val}>
         <label htmlFor={key}>{val}</label>
         <input
           key={key}

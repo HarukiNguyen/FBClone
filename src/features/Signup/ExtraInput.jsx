@@ -2,11 +2,12 @@ import CheckboxInputs from './CheckboxInputs';
 import SelectInputs from './SelectInputs';
 
 function ExtraInput({ extraInputInfos }) {
-  return extraInputInfos.map((info) => {
+  // I use `index` for `key` because the input won't be mutated --> no risk
+  return extraInputInfos.map((info, index) => {
     if (info.type === 'select') {
-      return <SelectInputs data={info} />;
+      return <SelectInputs key={index} data={info} />;
     } else {
-      return <CheckboxInputs data={info} />;
+      return <CheckboxInputs key={index} data={info} />;
     }
   });
 }
