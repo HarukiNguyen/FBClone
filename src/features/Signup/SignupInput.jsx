@@ -1,10 +1,10 @@
-function SignupInput({ autoFocus, type, placeholder }) {
+function SignupInput({ autoFocus, type, placeholder, className }) {
   return (
     <input
       autoFocus={autoFocus}
       type={type}
       name={type}
-      className="signup-input"
+      className={`${className} signup-input`}
       placeholder={placeholder}
       aria-label={placeholder}
       // onChange={onChange}

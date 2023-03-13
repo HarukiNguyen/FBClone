@@ -17,6 +17,7 @@ function Input({
   setValue,
   setIsValidInfo,
   inputType,
+  className,
 }) {
   const [validateInfo, setValidateInfo] = useState({});
   const [isInvalid, setIsInvalid] = useState(null);
@@ -89,6 +90,7 @@ function Input({
       type={type}
       name={name}
       placeholder={placeholder}
+      className={className}
     />
   );
 }
