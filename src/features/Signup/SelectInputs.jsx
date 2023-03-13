@@ -1,5 +1,6 @@
-function SelectInputs({ data }) {
+function SelectInputs({ data, extraInputGrClassName }) {
   const { title, options } = data;
+  const { titleCN, wrapper } = extraInputGrClassName;
 
   const selects = Object.entries(options).map(([key, val]) => {
     const { name, start, end, defaultVal } = val;
@@ -39,8 +40,8 @@ function SelectInputs({ data }) {
   });
 
   return (
-    <div>
-      <span>{title}</span>
+    <div className={wrapper}>
+      <span className={titleCN}>{title}</span>
       <div>{selects}</div>
     </div>
   );
